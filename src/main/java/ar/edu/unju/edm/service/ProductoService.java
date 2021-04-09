@@ -1,5 +1,20 @@
 package ar.edu.unju.edm.service;
 
-public interface ProductoService {
+import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
+import ar.edu.unju.edm.model.Producto;
+
+@Service
+public interface ProductoService {
+	//qué hace con Producto
+	
+	public void guardarProducto(Producto unProducto);
+	public void modificarProducto(Producto productoAModificar);
+	public void eliminarProducto(Producto productoAEliminar);
+	public Producto obtenerUnProducto(String nombreProducto);
+	public ArrayList<Producto> obtenerTodosProductos();
+	public Producto obtenerProductoNuevo();
+	
 }
