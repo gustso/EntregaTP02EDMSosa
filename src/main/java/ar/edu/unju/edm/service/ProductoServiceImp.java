@@ -2,6 +2,8 @@ package ar.edu.unju.edm.service;
 
 import java.util.ArrayList;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import ar.edu.unju.edm.model.Producto;
 
 @Service
 public class ProductoServiceImp implements ProductoService{
+	
+	private static final Log LOGGER = LogFactory.getLog(ProductoServiceImp.class);
 	//como se hace la solucion del problema
 		//guardar en Array		
 		//guarde en una BD MySQL		
@@ -32,6 +36,9 @@ public class ProductoServiceImp implements ProductoService{
 		//otra línea de control
 		//quiero saber cuántos elementos hay en el arreglo
 		System.out.println(listaDeProductos.size());
+		
+		LOGGER.info("METHOD: ingresando a Guardar Producto");
+		LOGGER.info("RESULT: guardado " + listaDeProductos.get(listaDeProductos.size()-1).getNombre());
 	}
 
 	@Override
@@ -55,13 +62,20 @@ public class ProductoServiceImp implements ProductoService{
 	@Override
 	public ArrayList<Producto> obtenerTodosProductos() {
 		// TODO Auto-generated method stub
-		return null;
+		return listaDeProductos;
 	}
 
 	@Override
 	public Producto obtenerProductoNuevo() {
 		// TODO Auto-generated method stub
 		return unProducto;
+	}
+
+	@Override
+	public Producto obtenerUltimoProducto() {
+		// TODO Auto-generated method stub
+		int i = listaDeProductos.size() - 1;
+		return listaDeProductos.get(i);
 	}
 	
 
