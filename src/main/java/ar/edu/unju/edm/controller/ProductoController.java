@@ -1,5 +1,7 @@
 package ar.edu.unju.edm.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import ar.edu.unju.edm.service.ProductoService;
 
 @Controller
 public class ProductoController {
+	private static final Log GUSTAVO = LogFactory.getLog(ProductoController.class);;
 	
 	@Autowired
 	ProductoService iProductoService;
@@ -29,6 +32,7 @@ public class ProductoController {
 		//mostrar el listado de producto luego de la carga de un producto
 		System.out.println(iProductoService.obtenerTodosProductos().get(0).getMarca());
 		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
+		GUSTAVO.error("solo de prueba");
 		return "resultado";
 	}
 	
